@@ -5,8 +5,8 @@ const insertData = async (req, res) => {
         const { id, field1, field2 } = req.body;
         const timestamp = getTimestamp();
         const data = await pool.query(
-            `INSERT INTO timeStampData VALUES($1,$2,$3,$4) RETURNING *`,
-            [id, timestamp, field1, field2]
+            `INSERT INTO timestampdata VALUES($1,$2,$3,$4) RETURNING *`,
+            [id, devicetime, field1, field2]
         );
         if (data.rows.length) {
             res.status(200).send("success");
